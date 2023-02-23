@@ -73,8 +73,7 @@ function buildCharts(sample) {
     
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
     
-    var metadataArray = data.metadata;
-    var resultsMetadata = metadataArray.filter(sampleObj => sampleObj.id == sample);
+    var filteredMeta = data.metadata;
 
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
     
@@ -83,8 +82,8 @@ function buildCharts(sample) {
 
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
     
-    var firstMetadata = resultsMetadata[0];
-    console.log(firstMetadata);
+    var firstMeta = filteredMeta.filter(sampleObj => sampleObj.id == sample);
+    console.log(firstMeta);
 
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
    
@@ -94,7 +93,8 @@ function buildCharts(sample) {
      
     // Deliverable 3: 3. Create a variable that holds the washing frequency.
     
-    var waFreq = parseFloat(firstMetadata.washFreq);
+    var washFreq = parseFloat(firstMeta[0].wFreq);
+    console.log("washFreq", washFreq);
 
     // Deliverable 1: 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order 
@@ -157,12 +157,12 @@ function buildCharts(sample) {
     
     var gaugeData = [{
       domain: {x: [0,1], y: [0,1]},
-      value: waFreq,
+      value: washFreq,
       title: {text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week"},
       type: "indicator",
       mode: "gauge+number",
       gauge: {
-        axis: {range: [null, 10] },
+        axis: {range: [null, 10]},
         bar: {color: "black"},
         steps: [
           {range: [0,2], color: "red"},
@@ -171,8 +171,7 @@ function buildCharts(sample) {
           {range: [6,8], color: "lightgreen"},
           {range: [8,10], color: "green"}
           
-        ]
-      }
+        ]}
     }]; 
 
     // Deliverable 3: 5. Create the layout for the gauge chart.
