@@ -74,16 +74,18 @@ function buildCharts(sample) {
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
     
     var filteredMeta = data.metadata;
+    console.log("filteredMeta", filteredMeta);
 
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
     
     var firstSample = resultArray[0];
-    console.log(firstSample)
+    console.log("firstSample", firstSample)
 
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
     
     var firstMeta = filteredMeta.filter(sampleObj => sampleObj.id == sample);
-    console.log(firstMeta);
+    
+    console.log("firstMeta", firstMeta);
 
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
    
@@ -93,7 +95,7 @@ function buildCharts(sample) {
      
     // Deliverable 3: 3. Create a variable that holds the washing frequency.
     
-    var washFreq = parseFloat(firstMeta[0].wFreq);
+    var washFreq = parseFloat(firstMeta[0].wfreq);
     console.log("washFreq", washFreq);
 
     // Deliverable 1: 7. Create the yticks for the bar chart.
@@ -166,9 +168,9 @@ function buildCharts(sample) {
         bar: {color: "black"},
         steps: [
           {range: [0,2], color: "red"},
-          {range: [2,4], color: "orange"},
+          {range: [2,4], color: "darkorange"},
           {range: [4,6], color: "yellow"},
-          {range: [6,8], color: "lightgreen"},
+          {range: [6,8], color: "chartreuse"},
           {range: [8,10], color: "green"}
           
         ]}
