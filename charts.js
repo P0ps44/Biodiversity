@@ -122,7 +122,8 @@ function buildCharts(sample) {
     // Deliverable 1: 9. Create the layout for the bar chart. 
     
     var barLayout = {
-      title: "TOP 10 Bacteria Cultures Found"
+      title: "TOP 10 Bacteria Cultures Found",
+      paper_bgcolor: "#c2c2d6"
     }
 
     // Deliverable 1: 10. Use Plotly to plot the data with the layout. 
@@ -148,7 +149,16 @@ function buildCharts(sample) {
     var bubbleLayout = {
       title: "Bacteria Cultures Per Sample",
       xaxis: {title: "OTU ID"},
-      hovermode: "x unified"
+      hovermode: "x unified",
+      paper_bgcolor: "#c2c2d6",
+      annotations: [{
+        x: 0.5,
+        xref: 'paper',
+        y: -0.3,
+        yref: 'paper',
+        text: 'This chart displays how often the baterial appears in the volunteers belly button.',
+        showarrow: false
+      }]  
     };
 
     // Deliverable 2: 3. Use Plotly to plot the data with the layout.
@@ -178,7 +188,12 @@ function buildCharts(sample) {
 
     // Deliverable 3: 5. Create the layout for the gauge chart.
 
-    var gaugeLayout ={ width: 500, height: 450, margin: { t: 0, b: 0 } };
+    var gaugeLayout ={
+      width: 457, 
+      height: 450, 
+      margin: { t: 0, b: 0 },
+      paper_bgcolor: "#c2c2d6"  
+    };
 
     // Deliverable 3: 6. Use Plotly to plot the gauge data and layout.
 
